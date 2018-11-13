@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>使用关联数组来存数表单元素名和值</title>
+</head>
+<body>
+<form id="formid" action="" method="get">
+    <p>FirstName: <input id="firstname" type="text" value="111"></p>
+    <p>LirstName: <input id="lastname" type="text" value="222"></p>
+</form>
+
+<button id="btn">获取value</button>
+
+<div id="text">
+
+</div>
+</body>
+
+<script>
+
+
+    btn.addEventListener('click', function (event) {
+        event.preventDefault() //取消事件的默认动作
+        let elemArr = new Object();
+        let elem = document.forms[0].elements;
+        let btn = document.getElementById('btn');
+        for (let i = 0; i < elem.length; i++) {
+            if (elem[i].type == 'text') {
+                elemArr[elem[i].id] = elem[i].value
+            }
+        }
+        let str = ''
+        //javascript中 如果想循环数组的话 需要使用下列方法，或者用for in
+        //Object.getOwnPropertyNames(obj) Reflect.ownKeys(obj) 这几种方法
+        // for (let i in elemArr) {
+        //    str += i + '->' + elemArr[i] + '<br/>'
+        // }
+        Object.keys(elemArr).forEach(function (key) {
+            str += key+ '=>' + elemArr[key] + '<br/>'
+        })
+        document.getElementById('text').innerHTML = str
+
+
+    }, false)
+
+    // 循环表单内的input元素 添加到一个对象当中
+    /*    [].forEach.call(elem,function (item,index,array) {
+          //console.log(item.value)
+          elemArr[item.id] = item.value
+        })
+        console.log(elemArr)*/
+
+
+</script>
+</html>

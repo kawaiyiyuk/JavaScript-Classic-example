@@ -7,6 +7,8 @@
 <body>
 <!--querySelectorAll 的结果是一个nodeList，这是一个和数组不一样的对象，所以想用forEach 循环是无法实现的-->
 <!--这是书上的意思，但是尝试了一下 发现是可以实现的-->
+<!--var elem = document.forms[0].elements; 返回的是nodeList 这个就无法实现了 必须用call方法-->
+
 
 <ul id="ul">
     <li  title="111">111</li>

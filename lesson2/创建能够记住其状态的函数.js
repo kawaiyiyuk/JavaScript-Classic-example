@@ -4,15 +4,42 @@
  * Description
  */
 //需求 创建一个函数，他能够记住数据，但是不必使用全局变量，并且不必对每个函数廖用重新发送同样的数据
-function outFn(wrap) {
-    function inFn(name) {
-        return wrap+ ' '+ name //这里的wrap就是所记住的数据 并且他不在全局作用域里
+// function outFn(wrap) {
+//     function inFn(name) {
+//         return wrap+ ' '+ name //这里的wrap就是所记住的数据 并且他不在全局作用域里
+//     }
+//     return inFn
+// }
+//
+// let daytiem = outFn('good day to you');
+// let night = outFn('good evening');
+//
+// console.log(daytiem('luoqi'));
+// console.log(night('luoqi'))
+
+
+// function myData(data) {
+//     function Infn() {
+//         let name = 'name';
+//         data = name
+//     }
+//     return Infn
+// }
+//
+// let getData  = myData('')
+
+
+var global = 'blobal';
+
+function out () {
+    var out = 'out';
+    function inFn () {
+        var inmsg = 'inmsg'
+        return inmsg
     }
     return inFn
 }
 
-let daytiem = outFn('good day to you');
-let night = outFn('good evening');
+var inner = out();
 
-console.log(daytiem('luoqi'));
-console.log(night('luoqi'))
+console.log(inner())

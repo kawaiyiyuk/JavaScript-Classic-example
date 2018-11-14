@@ -6,4 +6,4 @@
 let stateValue = [459,121,99,80,66,80];
 
 let [one,two,three,four,ive,six] = stateValue ;
-console.log(three)
+console.log(three) //99

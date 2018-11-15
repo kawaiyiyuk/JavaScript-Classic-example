@@ -4,7 +4,7 @@
  * Description
  */
 function f(a,b,c,d,e) {
-    var args = [].slice.call(arguments);
+    var args = [].slice.call(arguments); // call方法第一个参数是this值，通常是调用对象自身，这里的this是指向slice
     args.forEach(function (item) {
         console.log(item)
     })

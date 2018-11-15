@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用prototype.bind再次发现this</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload = function () {
+        //需求 想要控制分配给一个给定函数的作用域
+        window.name = 'window';
+        let newObj = {
+            name:'name',
+            say: function () {
+                //let that = this 和下面的bind(this) 功能相同
+                alert("now this is easy " + this.name);
+                /*由于箭头函数不绑定this， 它会捕获其所在（即定义的位置）上下文的this值， 作为自己的this值，
+                    用箭头函数同样可以解决这个问题
+
+                    所以 call() / apply() / bind() 方法对于箭头函数来说只是传入参数，对它的 this 毫无影响。
+                    let nested = (greeting)=> {
+                    alert(greeting + ' ' + this.name)
+                    console.log(this)
+                };*/
+                let nested = function (greeting) {
+                    //在匿名函数中，因为匿名函数不是一个对象，所以在匿名函数内的中的当前对象应该是其父对象，
+                    // 没有自定义的父对象只能是其根对象Window。
+                    alert(greeting + ' ' + this.name)
+                    console.log(this)
+                }.bind(this)
+                nested('hello')
+            }
+        };
+        newObj.say()
+        console.log(this,1)
+    }
+</script>
+</html>

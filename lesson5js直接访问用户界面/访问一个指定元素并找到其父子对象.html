@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>访问一个指定元素并找到其父子对象</title>
+</head>
+<body>
+ <div id="demodiv">
+  <p>
+   this is text
+  </p>
+ </div>
+</body>
+<script>
+ //需求 想要访问一个指定的对象，并找到其父元素和子元素
+ let demodiv = document.getElementById('demodiv');
+ let parenet = demodiv.parentNode;
+ let child = demodiv.childNodes;
+ let str = ''
+ for (let i=0 ;i <child.length;i++) {
+    // child[i].nodeType == 1 ?str+= child[i].nodeName.toLowerCase():'' //p
+     //child[i].nodeType == 1 ? (child[i].innerHTML = 'new'):''
+ }
+ console.log(str)
+</script>
+</html>
+

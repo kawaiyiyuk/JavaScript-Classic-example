@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>访问页面中所有的图片</title>
+</head>
+<body>
+<div id="demodiv">
+    <img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4140519135,2638216473&fm=173&app=25&f=JPEG?w=218&h=146&s=378049A45B991EC852A489970300D083" alt="">
+    <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4176602744,896865045&fm=173&app=25&f=JPEG?w=218&h=146&s=5A843C62DED0D6941F0061F50300F022" alt="">
+    <img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=911364699,2731681051&fm=173&app=25&f=JPEG?w=218&h=146&s=11205D3237D0DF9A9EE830CE0100F0A2" alt="">
+</div>
+</body>
+<script>
+    //需求 想要访问一个指定文档的所有img元素
+    //getElementsByTagName 返回给定元素类型节点的一个合集 一个一个nodeList
+    //返回的一个nodeList 只有一个属性 length 只有一个方法 item(i)
+
+
+    let imgs = document.getElementsByTagName('img');
+    console.log(imgs.length)
+    let p = document.createElement('p');
+    let img = document.createElement('img');
+    img.src = 'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1719038495,3739197123&fm=173&app=25&f=JPEG?w=218&h=146&s=BDC0CB11F2645F1FD08575CB0300E0B0'
+    p.appendChild(img);
+    let paras = document.getElementsByTagName('img');
+    paras[0].parentNode.appendChild(p);
+    console.log(imgs.length)
+</script>
+</html>

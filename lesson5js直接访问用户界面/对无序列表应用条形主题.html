@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>对无序列表应用条形主题</title>
+    <style>
+        #list {
+            width: 800px;
+            text-align: center;
+        }
+
+        #list li {
+            width: 400px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #333333;
+            border-width: 1px 1px 0;
+            list-style: none;
+        }
+
+        #list li:last-child {
+            border-width: 1px;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+</body>
+</html>
+
+<script>
+    window.onload = function () {
+        let ul = document.getElementById('list');
+        //方案1
+        //let lis = ul.querySelectorAll('li:nth-child(2n+1)');
+        // for (var i=0;i<lis.length;i++) {
+        //     lis[i].setAttribute('style','background-color:#ffeeee')
+        // }
+        //方案2
+        // let lis = ul.querySelectorAll('li:nth-child(odd)');
+        // lis.forEach(function (item,index,array) {
+        //     item.setAttribute('style','background-color:#ffeeee')
+        // })
+        //方案3
+        let lis = ul.getElementsByTagName('li');
+        [].forEach.call(lis,function (item,index,array) {
+            if (index % 2 == 0) {
+                lis[index].setAttribute('style','background-color:#ffeeee')
+            }
+        })
+
+    }
+</script>

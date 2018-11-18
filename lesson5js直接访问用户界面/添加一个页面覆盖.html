@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>添加一个页面覆盖</title>
+    <style>
+        .overlay {
+            background-color: #000000;
+            opacity: .5;
+            filter:alpha(opacity=50);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        .overlaymsg {
+            position: absolute;
+            background-color: yellow;
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            font-size: 2em;
+            z-index: 11;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+    </div>
+</body>
+</html>
+<script>
+    function expand() {
+        //创建覆盖，并将其添加到附加页面
+        var overlay = document.createElement('div');
+        overlay.setAttribute('class','overlay');
+        overlay.setAttribute('id','overlay');
+        document.body.appendChild(overlay);
+
+        //创建图像，并将其添加到页面
+        var msg = document.createElement('div');
+        var txt = document.createTextNode('please join our mailing list');
+        msg.appendChild(txt);
+        msg.setAttribute('id','msg');
+        msg.setAttribute('class','overlaymsg');
+        //单机以恢复页面
+
+        msg.onclick = restore
+        //将消息附加到覆盖
+        document.body.appendChild(msg)
+    }
+    //将页面恢复正常
+    function restore ()  {
+        document.body.removeChild(document.getElementById('overlay'));
+        document.body.removeChild(document.getElementById('msg'))
+    }
+
+    window.onload = function() {
+        expand()
+    }
+
+</script>

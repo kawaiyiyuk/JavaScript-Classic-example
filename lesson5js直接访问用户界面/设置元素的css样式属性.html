@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>设置元素的css样式属性</title>
+</head>
+<style>
+    .stripe {
+        background-color: red;
+        color: white;
+        border: 1px solid red;
+    }
+    .div2 {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<body>
+    <div class="div1" id="div1">
+
+    </div>
+
+    <div class="div2" id="div2">
+
+    </div>
+</body>
+</html>
+<script>
+    //需求 需要修改在一个特定的web页面元素上添加或替换一个样式设置
+    let elem = document.getElementById('div1');
+    //如果要改一个css属性，通过元素的style属性来修改
+    elem.style.backgroundColor = "red";
+    //如果要修改单个元素的一个或多个css属性 可以使用元素的 setAttribute()方法
+    //setAttribute 不会清楚原来设置的样式属性
+    elem.setAttribute('style','background-color:red;color:white:border: 1px solid red');
+
+    //或者可以预定义该样式的规则，将其赋值给一个class名，并且设置钙元素的class属性
+    //这个方法可以避免将属性设置到内联属性上
+    elem.setAttribute('class','stripe');
+
+    //其他相关知识
+    //还可以谁用createAttribute 来创建一个属性 ，然后再用setAttribute设置
+
+    var styleArr = document.createAttribute("style");
+    styleArr.nodeValue = "background-color:red";
+    console.log(styleArr);
+    //elem.setAttribute(styleArr) //这个会报错，setAttribute需要两个参数
+
+    //访问一个已有样式的设置
+    //1 使用getAttribute()方法  访问的是内联属性
+
+    let div2 = document.getElementById('div2');
+
+    console.log(div2.getAttribute('style')) //null
+    console.log(window.getComputedStyle(div2).getPropertyValue('color'))  //chrome 返回rgb(0,0,0)
+
+</script>

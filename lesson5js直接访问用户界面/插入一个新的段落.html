@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>插入一个新的段落</title>
+</head>
+<body>
+    <div id="div1">
+        <p>1、雷锋网消息，11月15日-16日，“全球AI+智适应教育峰会”在北京嘉里中心大酒店盛大开幕，峰会由雷锋网联合乂学教育松鼠AI，以及IEEE（美国电气电子工程师学会）教育工程和自适应教育标准工作组共同举办，汇聚国内外顶尖阵容。</p>
+        <p>2、AI智适应学习是目前产学研三界关注度最高的话题之一。此次峰会，我们将邀请美国三院院士、机器学习泰斗Michael Jordan，全球公认机器学习之父Tom Mitchell，斯坦福国际研究院（SRI）副总裁Robert Pearlstein、美国大学入学考试机构ACT学习方案组高级研究科学家Michael Yudelson等顶尖学者；新东方、掌门1对1、作业盒子、一起作业、ALEKS等国内外最具影响力的AI智适应教育公司共聚北京，共同探讨AI智适应热点话题。</p>
+        <p>3、在16日主论坛上，掌门1对1CEO张翼发表了主题为“教育AI化”的演讲，分享了他对教育AI化的思考与见解，张翼认为，新一代人工智能发展之后，“教”和“育”、“训”和“练”第一次被解构，AI对教育最实际的赋能是赋予学生打开知识宝库的“钥匙”，AI的本质是个性化，最大的亮点是能够更快地帮学生找到学习过程的“正循环”。</p>
+
+    </div>
+</body>
+</html>
+<script>
+    let div = document.getElementById('div1');
+    let paras = div.getElementsByTagName('p');
+
+    let newPara = document.createElement('p');
+    let text = document.createTextNode('4、我发现整个学习过程中练是一部分，怎么样让学生具备学习的动力这是另一个部分。我们思考到最后，无论是做学科的教育还是任何一个领域的教育，其实大家都有一个共同的使命，就是我们希望培养一个孩子有全面面向未来的独立思考的能力，这是一个非常立体的概念。所以对于现代的老师来说，无论你是否用人工智能辅助他，老师都是立体的，现在的老师跟以前的老师是不一样的。以前的老师只要做好练的过程，但是现在练的过程大部分已经可以被机器替代了。')
+    newPara.appendChild(text)
+
+    console.log(paras[2])
+    if(paras[2]) {
+        //insertBefore(data,elem)  data 要插入的数据, elem 插入数据的位置
+        div.insertBefore(newPara,paras[2]);
+    }else {
+        div.appendChild(newPara)
+    }
+
+    //document.createElement() 方法能够创建任何的html元素。然后可以将其分配给其他元素或数据
+</script>

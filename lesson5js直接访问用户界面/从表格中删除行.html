@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>从表格中删除行</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td,th {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        tr:nth-child(2n+1){
+            background-color: #eeffee;
+        }
+
+    </style>
+</head>
+<body>
+    <table id="mixed">
+        <tr>
+            <th>Value One</th>
+            <th>Value Two</th>
+            <th>Value Three</th>
+        </tr>
+    </table>
+    <div id="result"></div>
+</body>
+</html>
+<script>
+    var values = new Array(3);
+    values[0] = [123.45,'apple',true];
+    values[1] = [65,'banana',false];
+    values[2] = [1034.99,'cherry',false];
+
+    var mixed = document.getElementById('mixed');
+    var tbody = document.createElement('tbody');
+
+    for(var i=0; i<values.length;i++){
+        var tr = document.createElement('tr');
+        for(var j=0; j<values[i].length ; j++){
+            var td = document.createElement('td');
+            var txt = document.createTextNode(values[i][j]);
+            td.appendChild(txt)
+            tr.appendChild(td)
+        }
+        //绑定事件处理程序
+
+        tr.onclick = prunerow;
+        tbody.appendChild(tr);
+        mixed.appendChild(tbody)
+
+    }
+
+    function prunerow(){
+        //删除行
+        var parent = this.parentNode;
+        var oldrow = parent.removeChild(this);
+        var datastring = ''
+        for (var i=0;i<oldrow.childNodes.length;i++) {
+            var cell = oldrow.childNodes[i];
+            datastring+=cell.firstChild.data + ''
+        }
+
+        var msg = document.createTextNode('removed'+ datastring);
+        var p = document.createElement('p');
+        p.appendChild(msg);
+        document.getElementById('result').appendChild(p)
+    }
+</script>

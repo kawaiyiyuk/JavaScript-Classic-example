@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>给新的段落添加文本</title>
+</head>
+<body>
+<div id="div1">
+    <p>1、雷锋网消息，11月15日-16日，“全球AI+智适应教育峰会”在北京嘉里中心大酒店盛大开幕，峰会由雷锋网联合乂学教育松鼠AI，以及IEEE（美国电气电子工程师学会）教育工程和自适应教育标准工作组共同举办，汇聚国内外顶尖阵容。</p>
+    <p>2、AI智适应学习是目前产学研三界关注度最高的话题之一。此次峰会，我们将邀请美国三院院士、机器学习泰斗Michael Jordan，全球公认机器学习之父Tom Mitchell，斯坦福国际研究院（SRI）副总裁Robert Pearlstein、美国大学入学考试机构ACT学习方案组高级研究科学家Michael Yudelson等顶尖学者；新东方、掌门1对1、作业盒子、一起作业、ALEKS等国内外最具影响力的AI智适应教育公司共聚北京，共同探讨AI智适应热点话题。</p>
+    <p>3、在16日主论坛上，掌门1对1CEO张翼发表了主题为“教育AI化”的演讲，分享了他对教育AI化的思考与见解，张翼认为，新一代人工智能发展之后，“教”和“育”、“训”和“练”第一次被解构，AI对教育最实际的赋能是赋予学生打开知识宝库的“钥匙”，AI的本质是个性化，最大的亮点是能够更快地帮学生找到学习过程的“正循环”。</p>
+
+</div>
+</body>
+</html>
+<script>
+    let div = document.getElementById('div1')
+    let txt = prompt('请输入您想添加的内容')
+    let oldPara = div.getElementsByTagName('p')[0];
+
+    let txtNode = document.createTextNode(txt);
+    let para = document.createElement('p');
+    para.appendChild(txtNode);
+    div.insertBefore(para,oldPara)
+</script>

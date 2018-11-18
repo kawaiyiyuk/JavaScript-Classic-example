@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>找出共享同一个属性的所有元素</title>
+    <style>
+        .red {
+            background-color: #ffeeee;
+        }
+        #list {
+            width: 500px;
+            text-align: center;
+        }
+        #list li {
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #333333;
+            border-width: 1px 1px 0;
+        }
+        #list li:last-child{
+            border-width: 1px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li class="red">1</li>
+        <li>2</li>
+        <li class="red">3</li>
+        <li>4</li>
+        <li class="red">5</li>
+        <li>6</li>
+        <li class="red">7</li>
+        <li>8</li>
+        <li class="red">9</li>
+        <li>10</li>
+    </ul>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        let ullist = document.getElementById('list');
+        //使用通用选择器(*)结合属性选择器来找到拥有一个属性的所有元素
+        let lis = ullist.querySelectorAll('*[class="red"]');
+        //如果不确定类的名称，也可以使用子字符传匹配查询选择器
+        //现在只要包含字符串red的类名都匹配
+        //let lis = ullist.querySelectorAll('*[class*="red"]');
+        //找到没有目标类型的所有li元素，可以使用:not否定运算符
+        let lis2 = ullist.querySelectorAll('li:not(.red)');
+        console.log(lis)
+        console.log(lis2)
+    }
+</script>

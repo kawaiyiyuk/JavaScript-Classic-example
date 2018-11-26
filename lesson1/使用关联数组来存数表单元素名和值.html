@@ -36,6 +36,7 @@
         // for (let i in elemArr) {
         //    str += i + '->' + elemArr[i] + '<br/>'
         // }
+        //直接foreach遍历对象是不行的，只能用Object.keys()后再进行遍历
         Object.keys(elemArr).forEach(function (key) {
             str += key+ '=>' + elemArr[key] + '<br/>'
         })

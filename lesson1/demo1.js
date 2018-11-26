@@ -22,17 +22,17 @@
 
 
 //es6 findIndex()数组去重
-// var nums = [2,3,19,15,183,6,7,1,1];
-// var numE = []
-// for(var i=0 ;i<nums.length;i++) {
-//     var over = numE.findIndex(elememt => {
-//         return elememt == nums[i]
-//     })
-//     if(over == -1) {
-//         numE.push(nums[i])
-//     }
-// }
+var nums = [2,3,19,15,183,6,7,1,1];
+var numE = []
+for(var i=0 ;i<nums.length;i++) {
+    var over = numE.findIndex(elememt => {
+        return elememt == nums[i]
+    })
+    if(over == -1) {
+        numE.push(nums[i])
+    }
+}
 // var over = nums.findIndex(elememt => {
 //     return elememt == 9
 // })
-// console.log(numE);
+console.log(numE);
